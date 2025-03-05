@@ -9,7 +9,10 @@ class Processor:
     def filtrar_por(self, atributo: str, valor: str):
         self.df_filtrado = self.df[self.df[atributo] == valor]
         return self.df_filtrado
-
+    
+    def tratando_nulos(self):
+        self.df = self.df.dropna(subset=['cidade', 'custo'], how='all')
+        return self.df
 
 
         
